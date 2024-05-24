@@ -42,7 +42,7 @@ packages:
     source: hosted
     version: "2.11.0"
   audioplayers:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: audioplayers
       sha256: "752039d6aa752597c98ec212e9759519061759e402e7da59a511f39d43aa07d2"
@@ -98,7 +98,7 @@ packages:
     source: hosted
     version: "4.0.0"
   bloc:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: bloc
       sha256: "106842ad6569f0b60297619e9e0b1885c2fb9bf84812935490e6c5275777804e"
@@ -114,7 +114,7 @@ packages:
     source: hosted
     version: "2.1.1"
   cached_network_image:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: cached_network_image
       sha256: "28ea9690a8207179c319965c13cd8df184d5ee721ae2ce60f398ced1219cea1f"
@@ -202,7 +202,7 @@ packages:
     source: hosted
     version: "3.0.3"
   equatable:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: equatable
       sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
@@ -242,12 +242,12 @@ packages:
     source: hosted
     version: "1.1.0"
   flutter:
-    dependency: "direct main"
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
   flutter_animate:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_animate
       sha256: "7c8a6594a9252dad30cc2ef16e33270b6248c4dedc3b3d06c86c4f3f4dc05ae5"
@@ -255,7 +255,7 @@ packages:
     source: hosted
     version: "4.5.0"
   flutter_bloc:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_bloc
       sha256: f0ecf6e6eb955193ca60af2d5ca39565a86b8a142452c5b24d96fb477428f4d2
@@ -271,7 +271,7 @@ packages:
     source: hosted
     version: "3.3.2"
   flutter_fortune_wheel:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_fortune_wheel
       sha256: "2d8515483762f6f03766f655d88e1fb20bca947b9c8722dfd91c51aca2468596"
@@ -337,7 +337,7 @@ packages:
     source: hosted
     version: "2.1.2"
   go_router:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: go_router
       sha256: "7685acd06244ba4be60f455c5cafe5790c63dc91fc03f7385b1e922a6b85b17c"
@@ -400,6 +400,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.9.0"
+  lb_game_internals:
+    dependency: "direct main"
+    description:
+      path: "packages/lb_game_internals"
+      relative: true
+    source: path
+    version: "0.0.1"
   leak_tracker:
     dependency: transitive
     description:
@@ -433,7 +440,7 @@ packages:
     source: hosted
     version: "4.0.0"
   logging:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: logging
       sha256: "623a88c9594aa774443aa3eb2d41807a48486b5613e67599fb4c41c0ad47c340"
@@ -457,7 +464,7 @@ packages:
     source: hosted
     version: "0.8.0"
   meta:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: meta
       sha256: d584fa6707a52763a52446f02cc621b077888fb63b93bbcb1143a7be5a0c0c04
@@ -593,7 +600,7 @@ packages:
     source: hosted
     version: "1.5.1"
   provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: provider
       sha256: c8a055ee5ce3fd98d6fc872478b03823ffdb448699c6ebdbbc71d59b596fd48c
@@ -625,7 +632,7 @@ packages:
     source: hosted
     version: "0.27.7"
   shared_preferences:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: shared_preferences
       sha256: d3bbe5553a986e83980916ded2f0b435ef2e1893dfaa29d5a7a790d0eca12180

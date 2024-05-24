@@ -7,13 +7,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
-import 'package:lb_games_poc/main_screen/main_screen_event.dart';
-import 'package:lb_games_poc/main_screen/widgets/prize_widget.dart';
+
 
 import '../../audio/audio_controller.dart';
 import '../../audio/sounds.dart';
 import '../main_screen_bloc.dart';
+import '../main_screen_event.dart';
 import '../main_screen_state.dart';
+import 'prize_widget.dart';
 
 /// This widget defines the game UI itself, without things like the settings
 /// button or the back button.
@@ -51,7 +52,7 @@ class _GameWidgetState extends State<GameWidget> {
           hapticImpact: HapticImpact.light,
           items: _genItems(state.totalTiles, state.winningTile, widget.prizeKey),
           physics: CircularPanPhysics(
-            duration: Duration(seconds: 1),
+            duration: const Duration(seconds: 1),
             curve: Curves.decelerate,
           ),
           onFling: () => _play(context),
@@ -59,9 +60,9 @@ class _GameWidgetState extends State<GameWidget> {
             final bloc = context.read<MainScreenBloc>();
 
             if (bloc.state.nextTile == bloc.state.winningTile) {
-              bloc.add(PlayerWon());
+              bloc.add(const PlayerWon());
             } else {
-              bloc.add(PlayerLost());
+              bloc.add(const PlayerLost());
             }
           },
         );
@@ -149,7 +150,7 @@ class _WheelItem extends StatelessWidget {
             child: icon,
           ),
         ),
-        SizedBox(width: 25),
+        const SizedBox(width: 25),
       ],
     );
   }

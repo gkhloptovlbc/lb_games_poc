@@ -1,4 +1,5 @@
-import 'package:lb_games_poc/utils/base_bloc/bloc_command.dart';
+
+import '../utils/base_bloc/bloc_command.dart';
 
 class ShowGame extends BlocCommand {
   const ShowGame();

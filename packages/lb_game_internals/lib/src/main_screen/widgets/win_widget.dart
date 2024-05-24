@@ -5,16 +5,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lb_games_poc/audio/audio_controller.dart';
-import 'package:lb_games_poc/main_screen/main_screen_bloc.dart';
-import 'package:lb_games_poc/main_screen/main_screen_commands.dart';
-import 'package:lb_games_poc/main_screen/main_screen_event.dart';
-import 'package:lb_games_poc/main_screen/widgets/prize_widget.dart';
-import 'package:lb_games_poc/style/confetti.dart';
-import 'package:lb_games_poc/utils/base_bloc/bloc_command.dart';
 
+import '../../audio/audio_controller.dart';
 import '../../audio/sounds.dart';
+import '../../style/confetti.dart';
+import '../../utils/base_bloc/bloc_command.dart';
+import '../main_screen_bloc.dart';
+import '../main_screen_commands.dart';
+import '../main_screen_event.dart';
 import '../main_screen_state.dart';
+import 'prize_widget.dart';
 
 class WinWidget extends StatefulWidget {
   const WinWidget({super.key, required this.prizeWidgetKey});
@@ -42,11 +42,11 @@ class _WinWidgetState extends State<WinWidget> {
             ignoring: state.screenState != ScreenState.win,
             child: Stack(
               children: [
-                WinBackground(),
+                const WinBackground(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Spacer(flex: 1),
+                    const Spacer(flex: 1),
                     Expanded(
                       flex: 5,
                       child: Padding(
@@ -63,7 +63,7 @@ class _WinWidgetState extends State<WinWidget> {
                                     begin: Offset(_beginScale, _beginScale),
                                   )
                                   .move(begin: _beginOffset)
-                              : SizedBox.shrink(),
+                              : const SizedBox.shrink(),
                         ),
                       ),
                     ),
@@ -78,6 +78,7 @@ class _WinWidgetState extends State<WinWidget> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: 'Permanent Marker',
+                                    package: 'lb_game_internals',
                                     fontSize: 40,
                                     height: 1,
                                     color: Colors.greenAccent,
@@ -90,12 +91,12 @@ class _WinWidgetState extends State<WinWidget> {
                                     .shimmer(duration: 2.seconds, color: Colors.blueAccent),
                               ),
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     ),
-                    Spacer(),
+                    const Spacer(),
                   ],
                 ),
-                if (_showConfetti) Confetti()
+                if (_showConfetti) const Confetti()
               ],
             ),
           );
@@ -131,7 +132,7 @@ class _WinWidgetState extends State<WinWidget> {
 
     _beginOffset = initialCenter - endCenter;
 
-    bloc.add(WinAnimationReady());
+    bloc.add(const WinAnimationReady());
   }
 
   void _onPrizeAnimationComplete(AnimationController controller) async {

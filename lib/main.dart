@@ -7,14 +7,9 @@ import 'dart:developer' as dev;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lb_games_poc/main_screen/main_screen.dart';
+import 'package:lb_game_internals/lb_game_internals.dart';
 import 'package:logging/logging.dart';
-import 'package:provider/provider.dart';
 
-import 'app_lifecycle/app_lifecycle.dart';
-import 'audio/audio_controller.dart';
-import 'settings/settings.dart';
-import 'style/palette.dart';
 
 void main() async {
   // Basic logging setup.
@@ -45,50 +40,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppLifecycleObserver(
-      child: MultiProvider(
-        providers: [
-          Provider(create: (context) => SettingsController()),
-          Provider(create: (context) => Palette()),
-          // Set up audio.
-          ProxyProvider2<AppLifecycleStateNotifier, SettingsController, AudioController>(
-            create: (context) => AudioController(),
-            update: (context, lifecycleNotifier, settings, audio) {
-              audio!.attachDependencies(lifecycleNotifier, settings);
-              return audio;
-            },
-            dispose: (context, audio) => audio.dispose(),
-            // Ensures that music starts immediately.
-            lazy: false,
-          ),
-        ],
+    return MaterialApp(
+      title: 'Wheel of Fortune PoC',
+      home: AppHarness(
         child: Builder(builder: (context) {
-          final palette = context.watch<Palette>();
-
-          return MaterialApp(
-            title: 'My Flutter Game',
-            theme: ThemeData.from(
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: palette.darkPen,
-                surface: palette.backgroundMain,
-              ),
-              textTheme: TextTheme(
-                bodyMedium: TextStyle(color: palette.ink),
-              ),
-              useMaterial3: true,
-            ).copyWith(
-              // Make buttons more fun.
-              filledButtonTheme: FilledButtonThemeData(
-                style: FilledButton.styleFrom(
-                  textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-            ),
-            home: MainScreen(key: Key('main screen')),
-          );
+          return MainScreen(key: Key('main screen'));
         }),
       ),
     );

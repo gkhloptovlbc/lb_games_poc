@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lb_games_poc/main_screen/main_screen_commands.dart';
-import 'package:lb_games_poc/utils/base_bloc/base_bloc.dart';
 
+
+import '../utils/base_bloc/base_bloc.dart';
+import 'main_screen_commands.dart';
 import 'main_screen_event.dart';
 import 'main_screen_state.dart';
 
@@ -22,11 +23,11 @@ class MainScreenBloc extends BaseBloc<MainScreenEvent, MainScreenState> {
   }
 
   FutureOr<void> _initMainScreenBloc(InitMainScreenBloc event, Emitter<MainScreenState> emit) async {
-    add(StartScreenGone());
+    add(const StartScreenGone());
   }
 
   FutureOr<void> _startTapped(StartTapped event, Emitter<MainScreenState> emit) async {
-    sendCommand(ShowGame());
+    sendCommand(const ShowGame());
   }
 
   FutureOr<void> _startScreenGone(StartScreenGone event, Emitter<MainScreenState> emit) async {
@@ -34,11 +35,11 @@ class MainScreenBloc extends BaseBloc<MainScreenEvent, MainScreenState> {
   }
 
   FutureOr<void> _playerWon(PlayerWon event, Emitter<MainScreenState> emit) async {
-    sendCommand(PrepareWinAnimation());
+    sendCommand(const PrepareWinAnimation());
   }
 
   FutureOr<void> _winAnimationReady(WinAnimationReady event, Emitter<MainScreenState> emit) async {
-    sendCommand(ShowWin());
+    sendCommand(const ShowWin());
     emit(state.copyWith(screenState: ScreenState.winAnimation));
   }
 
@@ -47,7 +48,7 @@ class MainScreenBloc extends BaseBloc<MainScreenEvent, MainScreenState> {
   }
 
   FutureOr<void> _playerLost(PlayerLost event, Emitter<MainScreenState> emit) async {
-    sendCommand(ShowLose());
+    sendCommand(const ShowLose());
   }
 
   FutureOr<void> _loseAnimationDone(LoseAnimationDone event, Emitter<MainScreenState> emit) async {

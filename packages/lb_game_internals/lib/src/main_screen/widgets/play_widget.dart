@@ -1,14 +1,12 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lb_games_poc/main_screen/main_screen_bloc.dart';
-import 'package:lb_games_poc/main_screen/main_screen_event.dart';
-import 'package:lb_games_poc/main_screen/widgets/game_widget.dart';
-
 import '../../audio/audio_controller.dart';
 import '../../audio/sounds.dart';
+import '../main_screen_bloc.dart';
+import '../main_screen_event.dart';
 import '../main_screen_state.dart';
+import 'game_widget.dart';
 
 class PlayWidget extends StatelessWidget {
   const PlayWidget({
@@ -22,6 +20,7 @@ class PlayWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const ts = TextStyle(
       fontFamily: 'Permanent Marker',
+      package: 'lb_game_internals',
       fontSize: 50,
       height: 1,
       color: Colors.red,
@@ -31,19 +30,19 @@ class PlayWidget extends StatelessWidget {
       builder: (context, state) {
         return SafeArea(
           child: Container(
-            color: Color(0xFFC0D6E4),
+            color: const Color(0xFFC0D6E4),
             child: Column(
               children: [
-                Spacer(flex: 1),
+                const Spacer(flex: 1),
                 Transform.rotate(
                   angle: -0.07,
-                  child: Text(
+                  child: const Text(
                     "Spin to win!",
                     style: ts,
                     textAlign: TextAlign.center,
                   ).animate().shimmer(duration: 1.5.seconds, color: Colors.blueGrey),
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
                 Expanded(
                   flex: 8,
                   child: (state.screenState == ScreenState.play || state.screenState == ScreenState.start)
@@ -52,17 +51,17 @@ class PlayWidget extends StatelessWidget {
                           child: GameWidget(prizeKey: prizeWidgetKey)
                               .animate()
                               .rotate(duration: 1.seconds, begin: 0, end: 3, curve: Curves.easeIn)
-                              .scale(begin: Offset(0.1, 0.1)),
+                              .scale(begin: const Offset(0.1, 0.1)),
                         )
-                      : SizedBox.shrink(),
+                      : const SizedBox.shrink(),
                 ),
-                Spacer(),
+                const Spacer(),
                 Expanded(
                   flex: 1,
                   child: AspectRatio(
                     aspectRatio: 1,
                     child: IconButton(
-                      icon: Icon(Icons.thumb_up)
+                      icon: const Icon(Icons.thumb_up)
                           .animate(autoPlay: false, target: state.nextTile == state.winningTile ? 0 : 1)
                           .flipV(duration: 300.milliseconds, begin: 0, end: 1),
                       color: state.nextTile == state.winningTile ? Colors.green : Colors.red,
@@ -74,9 +73,9 @@ class PlayWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                Spacer(flex: 1),
-                Text("Music by Mr. Smith"),
-                SizedBox(height: 16),
+                const Spacer(flex: 1),
+                const Text("Music by Mr. Smith"),
+                const SizedBox(height: 16),
               ],
             ),
           ),

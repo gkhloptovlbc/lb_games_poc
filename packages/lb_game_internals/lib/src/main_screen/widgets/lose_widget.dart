@@ -1,15 +1,12 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lb_games_poc/main_screen/main_screen_bloc.dart';
 
 import '../../utils/base_bloc/bloc_command.dart';
+import '../main_screen_bloc.dart';
 import '../main_screen_commands.dart';
 import '../main_screen_state.dart';
 
@@ -30,8 +27,6 @@ class _LoseWidgetState extends State<LoseWidget> with SingleTickerProviderStateM
   static final catDuration = 1.seconds;
   static final thirdLineDelay = catDelay + catDuration + 1.seconds;
   static final thirdLineDuration = 1.seconds;
-  static final actionButtonDelay = thirdLineDelay + thirdLineDuration + 1.seconds;
-  static final actionButtonDuration = 1.seconds;
 
   @override
   void initState() {
@@ -49,16 +44,10 @@ class _LoseWidgetState extends State<LoseWidget> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     const ts = TextStyle(
       fontFamily: 'Permanent Marker',
+      package: 'lb_game_internals',
       fontSize: 30,
       height: 1,
       color: Colors.redAccent,
-    );
-
-    const tsb = TextStyle(
-      fontFamily: 'Permanent Marker',
-      fontSize: 14,
-      height: 1,
-      color: Colors.black,
     );
 
     return BlocCommandsListener<MainScreenBloc>(
@@ -73,7 +62,7 @@ class _LoseWidgetState extends State<LoseWidget> with SingleTickerProviderStateM
             ignoring: state.screenState != ScreenState.lose,
             child: Stack(
               children: [
-                LoseBackground(),
+                const LoseBackground(),
                 SafeArea(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
@@ -82,23 +71,23 @@ class _LoseWidgetState extends State<LoseWidget> with SingleTickerProviderStateM
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(height: 32),
-                        Text(
+                        const SizedBox(height: 32),
+                        const Text(
                           'You didn\'t win',
                           style: ts,
                           textAlign: TextAlign.center,
                         )
                             .animate(controller: _loseAnimationController, autoPlay: false)
                             .fadeIn(duration: firstLineDuration),
-                        SizedBox(height: 32),
-                        Text(
+                        const SizedBox(height: 32),
+                        const Text(
                           'Look at this cute kitty',
                           style: ts,
                           textAlign: TextAlign.center,
                         )
                             .animate(controller: _loseAnimationController, autoPlay: false)
                             .fadeIn(duration: secondLineDuration, delay: secondLineDelay),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         SizedBox(
                           height: catBlockHeight,
                           child: Center(
@@ -117,9 +106,9 @@ class _LoseWidgetState extends State<LoseWidget> with SingleTickerProviderStateM
                               .animate(controller: _loseAnimationController, autoPlay: false)
                               .fadeIn(duration: catDuration, delay: catDelay),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Expanded(
-                          child: Text(
+                          child: const Text(
                             'And try again tomorrow!',
                             style: ts,
                             textAlign: TextAlign.center,
@@ -127,7 +116,7 @@ class _LoseWidgetState extends State<LoseWidget> with SingleTickerProviderStateM
                               .animate(controller: _loseAnimationController, autoPlay: false)
                               .fadeIn(delay: thirdLineDelay, duration: thirdLineDuration),
                         ),
-                        SizedBox(height: 32),
+                        const SizedBox(height: 32),
                       ],
                     ),
                   ),
@@ -175,7 +164,7 @@ class _LoseBackgroundState extends State<LoseBackground> with SingleTickerProvid
   Widget build(BuildContext context) {
     return BlocCommandsListener<MainScreenBloc>(
       listener: _onBlocCommand,
-      child: Container(color: Color(0xFF222929))
+      child: Container(color: const Color(0xFF222929))
           .animate(controller: _backgroundAnimationController, autoPlay: false)
           .fadeIn(duration: 300.ms),
     );
