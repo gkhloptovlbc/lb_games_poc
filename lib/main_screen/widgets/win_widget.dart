@@ -33,18 +33,6 @@ class _WinWidgetState extends State<WinWidget> {
   bool _showText = false;
 
   @override
-  void initState() {
-    super.initState();
-    // _winAnimationController = AnimationController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    // _winAnimationController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocCommandsListener<MainScreenBloc>(
       listener: _onBlocCommand,
@@ -96,7 +84,7 @@ class _WinWidgetState extends State<WinWidget> {
                                   ),
                                 )
                                     .animate()
-                                    .slide(delay: 2.seconds, duration: 1.seconds)
+                                    .slide(delay: 2.seconds, duration: 0.5.seconds)
                                     .fadeIn()
                                     .then()
                                     .shimmer(duration: 2.seconds, color: Colors.blueAccent),

@@ -62,12 +62,11 @@ class PlayWidget extends StatelessWidget {
                   child: AspectRatio(
                     aspectRatio: 1,
                     child: IconButton(
-                      // icon: state.nextTile == state.winningTile ? Icon(Icons.thumb_up) : Icon(Icons.thumb_down),
                       icon: Icon(Icons.thumb_up)
                           .animate(autoPlay: false, target: state.nextTile == state.winningTile ? 0 : 1)
                           .flipV(duration: 300.milliseconds, begin: 0, end: 1),
                       color: state.nextTile == state.winningTile ? Colors.green : Colors.red,
-                      iconSize: 50,
+                      iconSize: 32,
                       onPressed: () {
                         context.read<AudioController>().playSfx(SfxType.buttonTap);
                         context.read<MainScreenBloc>().add(SetWin(!(state.winningTile == state.nextTile)));

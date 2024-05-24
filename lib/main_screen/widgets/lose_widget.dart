@@ -78,7 +78,7 @@ class _LoseWidgetState extends State<LoseWidget> with SingleTickerProviderStateM
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height,
-                    padding: const EdgeInsets.all(32.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 32.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
