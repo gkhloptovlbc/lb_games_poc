@@ -20,7 +20,7 @@ class MainScreenState extends Equatable {
 
   final prizeImageUrl =
       "https://c.sandbox.barcodes-aws.no/game-68c4ad3b-6444-48d1-a7d5-491bc69fd75a.jpg?v0.5852917086249558";
-  final catImageUrl = "https://cataas.com/cat";
+  final catImageUrl = "https://c.sandbox.barcodes-aws.no/schedule-ea20570f-738f-4add-968d-2edd663c6c08.jpg?v0.1548848594604384";
 
   const MainScreenState({
     required this.screenState,
