@@ -28,9 +28,9 @@ class PlayWidget extends StatelessWidget {
 
     return BlocBuilder<MainScreenBloc, MainScreenState>(
       builder: (context, state) {
-        return SafeArea(
-          child: Container(
-            color: const Color(0xFFC0D6E4),
+        return Container(
+          color: const Color(0xFFC0D6E4),
+          child: SafeArea(
             child: Column(
               children: [
                 const Spacer(flex: 1),
