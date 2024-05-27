@@ -49,9 +49,9 @@ class PlayWidget extends StatelessWidget {
                       ? Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: GameWidget(prizeKey: prizeWidgetKey)
-                              .animate()
-                              .rotate(duration: 1.seconds, begin: 0, end: 3, curve: Curves.easeIn)
-                              .scale(begin: const Offset(0.1, 0.1)),
+                              // .animate()
+                              // .rotate(duration: 1.seconds, begin: 0, end: 3, curve: Curves.easeIn)
+                              // .scale(begin: const Offset(0.1, 0.1)),
                         )
                       : const SizedBox.shrink(),
                 ),
