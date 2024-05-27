@@ -7346,7 +7346,6 @@ SOFTWARE.
 --------------------------------------------------------------------------------
 flutter_lints
 flutter_shaders
-go_router
 path_provider
 path_provider_android
 path_provider_foundation
