@@ -136,6 +136,8 @@ class _WinWidgetState extends State<WinWidget> {
   }
 
   void _onPrizeAnimationComplete(AnimationController controller) async {
+    if (!mounted) return;
+
     final bloc = context.read<MainScreenBloc>();
     final audioController = context.read<AudioController>();
     setState(() {
@@ -146,9 +148,12 @@ class _WinWidgetState extends State<WinWidget> {
     audioController.playSfx(SfxType.congrats);
 
     await Future<void>.delayed(2.seconds);
-    setState(() {
-      _showConfetti = false;
-    });
+
+    if (mounted) {
+      setState(() {
+        _showConfetti = false;
+      });
+    }
     bloc.add(const WinAnimationDone());
   }
 }
